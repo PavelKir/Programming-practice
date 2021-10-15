@@ -5,6 +5,8 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     protected Rigidbody2D enemyRb;
+    protected int damage = 10;
+    protected int enemyHP = 20;
 
     private void Awake()
     {
@@ -19,5 +21,13 @@ public class Enemy : MonoBehaviour
     protected virtual void Moving()
     {
 
+    }
+    protected void DamageReceived(int damage)
+    {
+        enemyHP -= damage;
+        if (enemyHP <=0)
+        {
+            Destroy(gameObject);
+        }
     }
 }
