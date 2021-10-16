@@ -15,6 +15,7 @@ public class ShootingEnemy : Enemy
     {
         base.Start();
         playerTransform = GameObject.Find("Player").GetComponent<Transform>();
+        enemyHP = 20;
     }
 
     private void Update()
@@ -40,7 +41,8 @@ public class ShootingEnemy : Enemy
         if ((Vector2.Distance(playerTransform.position, transform.position) < 15f) && timeFromLastFire > fireRate)
         {
             timeFromLastFire = 0f;
-            Instantiate(bulletPrefab, projectileSpawner.position, transform.rotation);
+            GameObject bullet = Instantiate(bulletPrefab, projectileSpawner.position, transform.rotation) as GameObject;
+            bullet.GetComponent<EnemyBullet>().damage = enemyShotDamage;
         }
     }
 }

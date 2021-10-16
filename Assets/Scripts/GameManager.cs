@@ -7,10 +7,10 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    class PlayerStats
+    public class PlayerStats
     {
-        int playerHP = 100;
-        int shotDamage = 20;
+        int playerHP = 50;
+        int shotDamage = 10;
         int jumpDamage = 10;
 
         public int PlayerHP
@@ -45,11 +45,12 @@ public class GameManager : MonoBehaviour
             {
                 // конец игры
             }
+            Debug.Log(PlayerHP);
         }
         
     }
     public static GameManager Instance;
-    PlayerStats playerStats;
+    public PlayerStats playerStats;
     // Start is called before the first frame update
     private void Awake()
     {

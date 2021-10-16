@@ -5,8 +5,9 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     protected Rigidbody2D enemyRb;
-    protected int damage = 10;
-    protected int enemyHP = 20;
+    protected int enemyShotDamage = 20;
+    protected int enemyDamage = 10;
+    protected int enemyHP = 10;
 
     private void Awake()
     {
@@ -22,12 +23,26 @@ public class Enemy : MonoBehaviour
     {
 
     }
-    protected void DamageReceived(int damage)
+    public void DamageReceived(int damage)
     {
         enemyHP -= damage;
         if (enemyHP <=0)
         {
             Destroy(gameObject);
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            if((collision.gameObject.transform.position.y - transform.position.y) > collision.gameObject.GetComponent<CapsuleCollider2D>().size.y)
+            {
+                DamageReceived(GameManager.Instance.playerStats.JumpDamage);
+            }
+            else
+            {
+                GameManager.Instance.playerStats.DamageReceived(enemyDamage);
+            }
         }
     }
 }
