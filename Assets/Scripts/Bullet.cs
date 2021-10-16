@@ -25,14 +25,14 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Platform"))
-        {
-            Destroy(gameObject);
-        }
         if (collision.gameObject.CompareTag("Enemy"))
         {
             Destroy(gameObject);
             collision.gameObject.GetComponent<Enemy>().DamageReceived(GameManager.Instance.playerStats.ShotDamage);
+        }
+        else
+        {
+            Destroy(gameObject);
         }
     }
 }

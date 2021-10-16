@@ -18,6 +18,10 @@ public class EnemyBullet : Bullet
             GameManager.Instance.playerStats.DamageReceived(damage);
             Destroy(gameObject);
         }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
 }
