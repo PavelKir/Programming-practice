@@ -63,6 +63,9 @@ public class PlayerManager : MonoBehaviour
         {
             isPlayerGrounded = true;
         }
-
+        if (collision.gameObject.CompareTag("Exit"))
+        {
+            GameManager.Instance.GameOver();
+        }
     }
 }
