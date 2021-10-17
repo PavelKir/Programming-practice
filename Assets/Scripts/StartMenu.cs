@@ -9,6 +9,7 @@ public class StartMenu: MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene(1);
+        GameManager.Instance.StartNewGame();
     }
     public void ExitGame()
     {

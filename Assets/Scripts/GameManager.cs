@@ -63,12 +63,15 @@ public class GameManager : MonoBehaviour
         }
         Instance = this;
         DontDestroyOnLoad(this.gameObject);
-        playerStats = new PlayerStats();
     }
 
     public void GameOver()
     {
         isGameOver = true;
         SceneManager.LoadScene(0);
+    }
+    public void StartNewGame()
+    {
+        playerStats = new PlayerStats();
     }
 }
