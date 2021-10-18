@@ -25,6 +25,7 @@ public class PlayerManager : MonoBehaviour
         horizontalInput = Input.GetAxis("Horizontal");
         RotatePlayer();
         Shooting();
+        DeathByFalling();
 
         if (Input.GetKeyDown(KeyCode.Space)&& isPlayerGrounded)
         {            
@@ -54,6 +55,14 @@ public class PlayerManager : MonoBehaviour
         else if (horizontalInput > 0)
         {
             transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+    }
+
+    void DeathByFalling()
+    {
+        if (transform.position.y < -8)
+        {
+            GameManager.Instance.GameOver();
         }
     }
 

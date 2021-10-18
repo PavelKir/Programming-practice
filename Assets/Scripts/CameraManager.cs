@@ -5,6 +5,7 @@ using UnityEngine;
 public class CameraManager : MonoBehaviour
 {
     Transform playerTransform;
+    float jumpOffset = 5f;
     void Start()
     {
         playerTransform = GameObject.Find("Player").GetComponent<Transform>();
@@ -13,6 +14,14 @@ public class CameraManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector3(playerTransform.position.x, transform.position.y, transform.position.z);
+        if (playerTransform.position.y > 5)
+        {
+            jumpOffset = 5f;
+        }
+        else
+        {
+            jumpOffset = 0;
+        }
+        transform.position = new Vector3(playerTransform.position.x, jumpOffset, transform.position.z);
     }
 }
