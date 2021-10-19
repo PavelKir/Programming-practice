@@ -8,6 +8,7 @@ public class PlayerStats
     int playerHP = 50;
     int shotDamage = 10;
     int jumpDamage = 10;
+    int ammo = 0;
 
     public int PlayerHP
     {
@@ -30,9 +31,20 @@ public class PlayerStats
             return jumpDamage;
         }
     }
+    public int Ammo
+    {
+        get
+        {
+            return ammo;
+        }
+    }
     public void AddHP(int amount)
     {
         playerHP += amount;
+        if(playerHP > 50)
+        {
+            playerHP = 50;
+        }
     }
     public void DamageReceived(int damage)
     {
@@ -43,7 +55,10 @@ public class PlayerStats
         }
         Debug.Log(PlayerHP);
     }
-
+    public void AddAmmo(int ammount)
+    {
+        ammo += ammount;
+    }
 }
 
 
