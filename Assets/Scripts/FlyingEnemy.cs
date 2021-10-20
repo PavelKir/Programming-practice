@@ -18,6 +18,7 @@ public class FlyingEnemy : Enemy
         startPos = transform.position;
     }
 
+    // POLYMORPHISM
     protected override void Moving()
     {
         if (isFlyToRight)

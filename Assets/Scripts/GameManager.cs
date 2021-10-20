@@ -10,6 +10,7 @@ public class PlayerStats
     int jumpDamage = 10;
     int ammo = 0;
 
+    // ENCAPSULATION
     public int PlayerHP
     {
         get

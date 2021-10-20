@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    // INHERITANCE  
     protected Rigidbody2D enemyRb;
     protected int enemyShotDamage = 20;
     protected int enemyDamage = 10;
