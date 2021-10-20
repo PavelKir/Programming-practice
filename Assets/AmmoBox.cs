@@ -8,6 +8,6 @@ public class AmmoBox : Item
 
     protected override void ItemPickedUp()
     {
-        GameManager.Instance.playerStats.AddAmmo(amount);
+        GameManager.Instance.playerStats.Ammo = amount;
     }
 }

@@ -16,6 +16,15 @@ public class PlayerStats
         {
             return playerHP;
         }
+        set
+        {
+            playerHP -= value;
+            if (playerHP <= 0)
+            {
+                playerHP = 0;
+                GameManager.Instance.GameOver();
+            }
+        }
     }
     public int ShotDamage
     {
@@ -37,6 +46,10 @@ public class PlayerStats
         {
             return ammo;
         }
+        set
+        {
+            ammo += value;
+        }
     }
     public void AddHP(int amount)
     {
@@ -45,19 +58,6 @@ public class PlayerStats
         {
             playerHP = 50;
         }
-    }
-    public void DamageReceived(int damage)
-    {
-        playerHP -= damage;
-        if (playerHP <= 0)
-        {
-            GameManager.Instance.GameOver();
-        }
-        Debug.Log(PlayerHP);
-    }
-    public void AddAmmo(int ammount)
-    {
-        ammo += ammount;
     }
 }
 

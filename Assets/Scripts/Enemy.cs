@@ -41,7 +41,7 @@ public class Enemy : MonoBehaviour
             }
             else
             {
-                GameManager.Instance.playerStats.DamageReceived(enemyDamage);
+                GameManager.Instance.playerStats.PlayerHP = enemyDamage;
             }
         }
     }

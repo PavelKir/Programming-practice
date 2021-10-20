@@ -39,7 +39,7 @@ public class PlayerManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftShift) && GameManager.Instance.playerStats.Ammo != 0)
         {
             Instantiate(bulletPrefab, projectileSpawner.position, gameObject.transform.rotation);
-            GameManager.Instance.playerStats.AddAmmo(-1);
+            GameManager.Instance.playerStats.Ammo = -1;
         }
     }
     private void FixedUpdate()

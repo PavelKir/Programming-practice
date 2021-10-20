@@ -15,7 +15,7 @@ public class EnemyBullet : Bullet
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            GameManager.Instance.playerStats.DamageReceived(damage);
+            GameManager.Instance.playerStats.PlayerHP = damage;
             Destroy(gameObject);
         }
         else
