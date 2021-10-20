@@ -69,15 +69,20 @@ public class GameManager : MonoBehaviour
     public bool isGameOver = false;
     public static GameManager Instance;
     public PlayerStats playerStats;
+    AudioSource backgroundAudio;
+    public float backgroundVolume;
     // Start is called before the first frame update
     private void Awake()
-    {
+    {        
         if(Instance != null)
         {
             Destroy(this.gameObject);
+            return;
         }
         Instance = this;
         DontDestroyOnLoad(this.gameObject);
+        backgroundAudio = GetComponent<AudioSource>();
+        backgroundAudio.volume = backgroundVolume;
     }
 
     public void GameOver()
